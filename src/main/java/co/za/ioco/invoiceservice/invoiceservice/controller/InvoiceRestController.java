@@ -37,7 +37,7 @@ public class InvoiceRestController {
 	  return invoiceService.viewInvoice(invoiceId);
 	 }
 	  
-	 @PostMapping("/api/employees")
+	 @PostMapping("/api/addInvoice")
 	 public Invoice addInvoice(Invoice invoice){
 		 invoiceService.addInvoice(invoice);
 	  System.out.println("Invoice Saved Successfully");
