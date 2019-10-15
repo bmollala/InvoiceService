@@ -4,11 +4,14 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -32,6 +35,21 @@ public class Invoice {
 	
 	@Column(name="INVOICE_DATE")
 	private Date invoiceDate;
+	
+	@OneToMany(
+			cascade = CascadeType.ALL,
+			orphanRemoval = true
+			)
+	@JoinColumn(name="INVOICE_ID")
+	private List<LineItem> lineItems = new ArrayList<>();
+
+	public List<LineItem> getLineItems() {
+		return lineItems;
+	}
+
+	public void setLineItems(List<LineItem> lineItems) {
+		this.lineItems = lineItems;
+	}
 	
 	public Long getId() {
 		return id;
