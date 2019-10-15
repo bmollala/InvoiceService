@@ -3,6 +3,8 @@ package co.za.ioco.invoiceservice.invoiceservice.entity;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
